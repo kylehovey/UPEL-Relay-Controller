@@ -1,0 +1,20 @@
+{
+  "tasks" : {
+    "compileJS" : [
+      {
+        "name" : "app-JS",
+        "src" : "./src/js/**/*.js",
+        "dest" : "./public/js/app",
+        "enabled" : true
+      }
+    ],
+    "compileCSS" : [
+      {
+        "name" : "app-CSS",
+        "src" : "./src/sass/**/*.scss",
+        "dest" : "./public/style",
+        "enabled" : true
+      }
+    ]
+  }
+}
