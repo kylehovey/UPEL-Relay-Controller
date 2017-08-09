@@ -1,11 +1,146 @@
+@import "compass/css3";
+@import "compass/css3/user-interface";
+
 $link-color: #00B7FF;
 $font-stack: "Lucida Grande", Helvetica, Arial, sans-serif;
 
 body {
+  background-color: rgb(10,10,10);
+  font-family: Helvetica Neue, Arial, serif;
   padding: 50px;
-  font: 14px $font-stack
+  text-align: center;
 }
 
 a {
   color: $link-color;
 }
+
+.button.dramatic {
+  $font-size: 40px;
+  @include background-image( 
+    radial-gradient(
+      rgb(50,50,50),
+      rgb(20,20,20)
+    )
+  );
+  @include border-radius(25px);
+  @include box-shadow(
+    0 20px 0 0 rgb(20,20,20),
+    0 20px 20px 0 rgba(255,255,255, 0.4) 
+  );
+  @include text-shadow(
+    0 1px 5px rgba(255,255,255, 0.45),
+    -2px -3px 5px rgba(255,255,255, 0.25)
+  );
+  @include transition(
+    box-shadow 100ms,
+    transform 100ms
+  );
+  @include user-select(none);
+  border: 3px solid rgb(50,50,50);
+  border-top: 1px solid rgb(100,100,100);
+  border-bottom: 1px solid rgb(45,45,45);
+  color: rgba(255,255,255, 0.5);
+  cursor: pointer;
+  font-size: $font-size;
+  display: inline-block;
+  padding: 0.75em 1.2em;
+  position: relative;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  &:before {
+    @include border-radius(3px);
+    @include transition(
+      box-shadow 300ms,
+      background 300ms
+    );
+    background-color: rgba(255,0,0, 0.2);
+    bottom: 15px;
+    content: "";
+    height: 3px;
+    left: 20px;
+    position: absolute;
+    right: 20px;
+  }
+
+  &:hover {
+    @include background-image( 
+      radial-gradient(
+        rgb(60,60,60),
+        rgb(20,20,20)
+      )
+    );
+
+    &:before {
+      @include box-shadow(
+        0 0 5px 0 rgba(255,0,0, 0.25)
+      );
+    }
+
+  }
+
+
+  &:active {
+    @include box-shadow(
+      0 5px 0 0 rgb(20,20,20),
+      0 5px 20px 0 rgba(255,255,255, 0.4) 
+    );
+    @include translateY(15px);
+  }
+
+
+  &.loading {
+    
+  
+    &:before {
+      @include background-image(
+        radial-gradient(45px 45px, rgb(255,0,0) 10px, rgba(255,0,0, 0.5) 30px)
+      );
+
+      -webkit-animation: bg_h_move 5s 20 ease;
+      -moz-animation: bg_h_move 5s 20 ease;
+      -o-animation: bg_h_move 5s 20 ease;    
+    }
+
+  }
+
+}
+
+
+@-moz-keyframes bg_h_move {
+  0%   { background-position:  120px  0 }
+  20%  { background-position: -120px  0 }
+  40%  { background-position:  120px  0 }
+  60%  { background-position:  120px  0 }
+  80%  { background-position: -120px  0 }
+  100% { background-position:  120px  0 }
+}
+
+@-webkit-keyframes bg_h_move {
+  0%   { background-position:  120px  0 }
+  20%  { background-position: -120px  0 }
+  40%  { background-position:  120px  0 }
+  60%  { background-position:  120px  0 }
+  80%  { background-position: -120px  0 }
+  100% { background-position:  120px  0 }
+}
+
+@-o-keyframes bg_h_move {
+  0%   { background-position:  120px  0 }
+  20%  { background-position: -120px  0 }
+  40%  { background-position:  120px  0 }
+  60%  { background-position:  120px  0 }
+  80%  { background-position: -120px  0 }
+  100% { background-position:  120px  0 }
+}
+
+@keyframes bg_h_move {
+  0%   { background-position:  120px  0 }
+  20%  { background-position: -120px  0 }
+  40%  { background-position:  120px  0 }
+  60%  { background-position:  120px  0 }
+  80%  { background-position: -120px  0 }
+  100% { background-position:  120px  0 }
+}
+

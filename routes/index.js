@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Node Boilerplate' });
+  res.render('index', { title: 'Relay Control' });
 });
 
 module.exports = router;
