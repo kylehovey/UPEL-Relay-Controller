@@ -1,6 +1,148 @@
 body {
+  background-color: #0a0a0a !important;
+  font-family: Helvetica Neue, Arial, serif;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  text-align: center; }
 
 a {
   color: #00B7FF; }
+
+/* Dramatic Button - (raw CSS because I didn't want to install another library
+ *  for the SCSS compile).
+ */
+.dramatic-button {
+  margin-top: 25%;
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMyMzIzMiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzE0MTQxNCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==");
+  background-size: 100%;
+  background-image: -moz-radial-gradient(#323232, #141414);
+  background-image: -webkit-radial-gradient(#323232, #141414);
+  background-image: radial-gradient(#323232, #141414);
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+  -moz-box-shadow: 0 20px 0 0 #141414, 0 20px 20px 0 rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: 0 20px 0 0 #141414, 0 20px 20px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 0 0 #141414, 0 20px 20px 0 rgba(255, 255, 255, 0.4);
+  text-shadow: 0 1px 5px rgba(255, 255, 255, 0.45), -2px -3px 5px rgba(255, 255, 255, 0.25);
+  -moz-transition: box-shadow 100ms, -moz-transform 100ms;
+  -o-transition: box-shadow 100ms, -o-transform 100ms;
+  -webkit-transition: box-shadow 100ms, -webkit-transform 100ms;
+  transition: box-shadow 100ms, transform 100ms;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  border: 3px solid #323232;
+  border-top: 1px solid #646464;
+  border-bottom: 1px solid #2d2d2d;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 40px;
+  display: inline-block;
+  padding: 0.75em 1.2em;
+  position: relative;
+  letter-spacing: 0.1em;
+  text-transform: uppercase; }
+
+.dramatic-button:before {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-transition: box-shadow 300ms, background 300ms;
+  -o-transition: box-shadow 300ms, background 300ms;
+  -webkit-transition: box-shadow 300ms, background 300ms;
+  transition: box-shadow 300ms, background 300ms;
+  background-color: rgba(255, 0, 0, 0.2);
+  bottom: 15px;
+  content: "";
+  height: 3px;
+  left: 20px;
+  position: absolute;
+  right: 20px; }
+
+.dramatic-button:hover {
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzNjM2MzYyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzE0MTQxNCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==");
+  background-size: 100%;
+  background-image: -moz-radial-gradient(#3c3c3c, #141414);
+  background-image: -webkit-radial-gradient(#3c3c3c, #141414);
+  background-image: radial-gradient(#3c3c3c, #141414); }
+
+.dramatic-button:hover:before {
+  -moz-box-shadow: 0 0 5px 0 rgba(255, 0, 0, 0.25);
+  -webkit-box-shadow: 0 0 5px 0 rgba(255, 0, 0, 0.25);
+  box-shadow: 0 0 5px 0 rgba(255, 0, 0, 0.25); }
+
+.dramatic-button:active {
+  -moz-box-shadow: 0 5px 0 0 #141414, 0 5px 20px 0 rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: 0 5px 0 0 #141414, 0 5px 20px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 5px 0 0 #141414, 0 5px 20px 0 rgba(255, 255, 255, 0.4);
+  -moz-transform: translateY(15px);
+  -ms-transform: translateY(15px);
+  -webkit-transform: translateY(15px);
+  transform: translateY(15px); }
+
+.dramatic-button.loading:before {
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjQ1cHgiIGN5PSI0NXB4IiByPSIzMCUiPjxzdG9wIG9mZnNldD0iMzMuMzMzMzMlIiBzdG9wLWNvbG9yPSIjZmYwMDAwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmYwMDAwIiBzdG9wLW9wYWNpdHk9IjAuNSIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==");
+  background-size: 100%;
+  background-image: -moz-radial-gradient(45px 45px, #ff0000 10px, rgba(255, 0, 0, 0.5) 30px);
+  background-image: -webkit-radial-gradient(45px 45px, #ff0000 10px, rgba(255, 0, 0, 0.5) 30px);
+  background-image: radial-gradient(45px 45px, #ff0000 10px, rgba(255, 0, 0, 0.5) 30px);
+  -webkit-animation: bg_h_move 5s 20 ease;
+  -moz-animation: bg_h_move 5s 20 ease;
+  -o-animation: bg_h_move 5s 20 ease; }
+
+@-moz-keyframes bg_h_move {
+  0% {
+    background-position: 120px 0; }
+  20% {
+    background-position: -120px 0; }
+  40% {
+    background-position: 120px 0; }
+  60% {
+    background-position: 120px 0; }
+  80% {
+    background-position: -120px 0; }
+  100% {
+    background-position: 120px 0; } }
+
+@-webkit-keyframes bg_h_move {
+  0% {
+    background-position: 120px 0; }
+  20% {
+    background-position: -120px 0; }
+  40% {
+    background-position: 120px 0; }
+  60% {
+    background-position: 120px 0; }
+  80% {
+    background-position: -120px 0; }
+  100% {
+    background-position: 120px 0; } }
+
+@-o-keyframes bg_h_move {
+  0% {
+    background-position: 120px 0; }
+  20% {
+    background-position: -120px 0; }
+  40% {
+    background-position: 120px 0; }
+  60% {
+    background-position: 120px 0; }
+  80% {
+    background-position: -120px 0; }
+  100% {
+    background-position: 120px 0; } }
+
+@keyframes bg_h_move {
+  0% {
+    background-position: 120px 0; }
+  20% {
+    background-position: -120px 0; }
+  40% {
+    background-position: 120px 0; }
+  60% {
+    background-position: 120px 0; }
+  80% {
+    background-position: -120px 0; }
+  100% {
+    background-position: 120px 0; } }

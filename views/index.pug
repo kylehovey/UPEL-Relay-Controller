@@ -1,8 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div.container
+    div.row
+      div.col-md-6
+        div.container(id="main-button")
 append userScripts
   script(src="/js/app/index/app.js")
   script(src="/js/app/index/main.js")
