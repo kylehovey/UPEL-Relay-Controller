@@ -12,6 +12,15 @@ class BigButton {
     // Create and save button
     this.button = $(`#${options.containerID}`)
       .append(`<div class="dramatic-button" id="${this.name}-button">${options.text}</div>`)
-      .on('click', options.onClick);
+      .on('click', options.onClick)
+      .find(".dramatic-button");
+  }
+
+  /**
+   * Set the button text
+   * @param {String} text Text to set
+   */
+  setText(text) {
+    this.button.text(text);
   }
 };

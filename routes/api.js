@@ -32,15 +32,51 @@ function setGPIO(index, state) {
   });
 }
 
+/**
+ * Get the current status of each mapped pin
+ * @return {Promise}
+ */
+function getStatus() {
+  return new Promise((resolve, reject) => {
+    resolve([
+      true,
+      false,
+      false
+    ]);
+  });
+}
+
 /* GET home page. */
 router.post('/', async function(req, res, next) {
   // Parse data out
   let
     data = req.body.data ? JSON.parse(req.body.data) : new Object,
     command = req.body.command;
+  
+  console.log({
+    data,
+    command
+  });
 
   // Command logic
   switch (command) {
+    case "getStatus":
+      getStatus()
+        .then(results => {
+          res.json({
+            success : true,
+            results
+          });
+        })
+        .catch(err => {
+          console.log(err);
+
+          res.json({
+            success : false,
+            message : "Could not acquire status."
+          });
+        });
+      break;
     case "set":
       /*
        * Data comes in like this:
@@ -54,7 +90,8 @@ router.post('/', async function(req, res, next) {
       setGPIO(data.number, data.state)
         .then(status => {
           res.json({
-            success : status
+            success : status,
+            results : status
           });
         })
         .catch(err => {

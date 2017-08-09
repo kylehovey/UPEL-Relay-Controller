@@ -1,4 +1,4 @@
 $(() => {
   // Create the application
-  window.app = new App();
+  (window.app = new App()).init();
 });
