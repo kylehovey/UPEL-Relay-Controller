@@ -1,12 +1,16 @@
 extends layout
 
 block content
-  div
-    div.top-left(id="pie-menu")
   div.container
+    div.row
     div.row
       div.col-md-12
         div.container.center(id="main-button")
+      div.col-md-12
+        div.btn-group(role="group", id="active-relay-select")
+          button.large.btn.btn-secondary(type="button", data-value="0") 0
+          button.large.btn.btn-secondary(type="button", data-value="1") 1
+          button.large.btn.btn-secondary(type="button", data-value="2") 2
 append userScripts
   script(src="/js/app/index/app.js")
   script(src="/js/app/index/main.js")

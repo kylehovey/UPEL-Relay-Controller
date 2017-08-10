@@ -3,24 +3,15 @@ class App {
     // Init active relay control
     this.activeRelay = 0;
 
-    // Create the wheel nav
-    let wheel = new wheelnav('pie-menu');
-    wheel.colors = ['#EDC951'];
-    wheel.spreaderEnable = true;
-    wheel.spreaderRadius = 85;
-    wheel.slicePathFunction = slicePath().DonutSlice;
-    wheel.clickModeRotate = false;
-    wheel.createWheel([..._.range(1,4).map(x => "" + x), ...(new Array(12)).fill(null)])
+    //wheel.navItems.forEach((item, i) => {
+    //  item.navigateFunction = () => {
+    //    // Set the relay
+    //    this.activeRelay = i;
 
-    wheel.navItems.forEach((item, i) => {
-      item.navigateFunction = () => {
-        // Set the relay
-        this.activeRelay = i;
-
-        // Set button text accordingly
-        this.bigButton.setText(this.buttonStates[i] ? `Deactivate Relay ${i + 1}` : `Activate Relay ${i + 1}`);
-      }
-    });
+    //    // Set button text accordingly
+    //    this.bigButton.setText(this.buttonStates[i] ? `Deactivate Relay ${i + 1}` : `Activate Relay ${i + 1}`);
+    //  }
+    //});
   }
 
   /**
