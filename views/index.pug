@@ -2,9 +2,10 @@ extends layout
 
 block content
   div.container
+    div.top-left(id="pie-menu")
     div.row
       div.col-md-6
-        div.container(id="main-button")
+        div.container.center(id="main-button")
 append userScripts
   script(src="/js/app/index/app.js")
   script(src="/js/app/index/main.js")

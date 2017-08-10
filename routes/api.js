@@ -6,9 +6,14 @@ const pinMap = require('config.json')('config/config.json').pinMap;
 /**
  * Set up the GPIO pins in the map for output
  */
-{
-  // TODO
-}
+// Set up pins as output
+// TODO
+
+// Set all output to 0
+// TODO
+
+// Create reference for current pin states
+let currentStates = (new Array(pinMap.length)).fill(false)
 
 /**
  * Set the GPIO state of mapped pins to either high or low
@@ -38,11 +43,7 @@ function setGPIO(index, state) {
  */
 function getStatus() {
   return new Promise((resolve, reject) => {
-    resolve([
-      true,
-      false,
-      false
-    ]);
+    resolve(currentStates);
   });
 }
 
@@ -84,7 +85,7 @@ router.post('/', async function(req, res, next) {
        *    number : [1-3],
        *    state : [true,false]
        *  }
-      */
+       */
 
       // Set the GPIO accordingly
       setGPIO(data.number, data.state)

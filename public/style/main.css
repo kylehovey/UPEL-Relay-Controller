@@ -7,6 +7,16 @@ body {
 a {
   color: #00B7FF; }
 
+div .center {
+  text-align: center; }
+
+div .top-left {
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  height: 100%; }
+
 /* Dramatic Button - (raw CSS because I didn't want to install another library
  *  for the SCSS compile).
  */
