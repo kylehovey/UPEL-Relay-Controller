@@ -10,13 +10,13 @@ append content
         div.btn-group(role="group", data-toggle="buttons", id="active-relay-select")
           label.btn.btn-danger.active
             input(type="radio", name="options", data-value="0", autocomplete="off")
-            =0
-          label.btn.btn-danger
-            input(type="radio", name="options", data-value="1", autocomplete="off")
             =1
           label.btn.btn-danger
-            input(type="radio", name="options", data-value="2", autocomplete="off")
+            input(type="radio", name="options", data-value="1", autocomplete="off")
             =2
+          label.btn.btn-danger
+            input(type="radio", name="options", data-value="2", autocomplete="off")
+            =3
 append userScripts
   script(src="/js/app/index/app.js")
   script(src="/js/app/index/main.js")
