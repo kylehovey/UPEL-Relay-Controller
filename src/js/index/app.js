@@ -21,10 +21,44 @@ class App {
   }
 
   /**
+   * Get the active state
+   * @return {Boolean}
+   */
+  getActiveState() {
+    return this.buttonStates[this.activeRelay];
+  }
+
+  /**
+   * Set the button text and state accordingly
+   */
+  updateButtonView() {
+    // Fencepost name for relay
+    let relayNo = this.activeRelay + 1;
+
+    // Set button text accordingly
+    app.bigButton.setText(this.getActiveState() ?
+      `Deactivate Relay ${relayNo}` :
+      `Activate Relay ${relayNo}`
+    );
+
+    // Set button loading animation
+    app.bigButton.setLoading(this.getActiveState());
+  }
+
+  /**
+   * Toggle the current active state
+   */
+  toggleState() {
+    // Invert button state
+    let state
+      = this.buttonStates[this.activeRelay]
+      = !this.getActiveState();
+  }
+
+  /**
    * Initialize application
    */
   async init() {
-
     // Get the current state of each relay
     this.buttonStates = await this.runCommand("getStatus");
 
@@ -32,31 +66,23 @@ class App {
     this.bigButton = new BigButton({
       containerID : "main-button",
       name : "Main Button",
-      text : this.buttonStates[this.activeRelay] ?
+      text : this.getActiveState() ?
         `Deactivate Relay ${this.activeRelay + 1}` :
         `Activate Relay ${this.activeRelay + 1}`,
       onClick : () => {
-        // Invert button state
-        let state
-          = this.buttonStates[this.activeRelay]
-          = !this.buttonStates[this.activeRelay];
-
         // Run the command
         this.runCommand("set", {
           number : this.activeRelay,
-          state
+          state : this.getActiveState()
         })
           .then(console.log)
           .catch(console.log)
 
-        // Fencepost name for relay
-        let relayNo = this.activeRelay + 1;
+        // Toggle this model
+        this.toggleState();
 
-        // Set button text accordingly
-        app.bigButton.setText(state ?
-          `Deactivate Relay ${relayNo}` :
-          `Activate Relay ${relayNo}`
-        );
+        // Update the view
+        this.updateButtonView();
       }
     });
   }

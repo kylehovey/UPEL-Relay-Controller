@@ -23,4 +23,30 @@ class BigButton {
   setText(text) {
     this.button.text(text);
   }
+
+  /**
+   * Start the loading animation
+   */
+  startLoading() {
+    this.button.addClass("loading");
+  }
+
+  /**
+   * Stop the loading animation
+   */
+  stopLoading() {
+    this.button.removeClass("loading");
+  }
+
+  /**
+   * Set the loading animation by argument
+   * @param {Boolean} state Loading state
+   */
+  setLoading(state) {
+    if (state) {
+      this.startLoading();
+    } else {
+      this.stopLoading();
+    }
+  }
 };
