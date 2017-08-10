@@ -18,7 +18,7 @@ class App {
         this.activeRelay = i;
 
         // Set button text accordingly
-        this.bigButton.setText(this.buttonStates[i] ? `Deactivate Relay ${i}` : `Activate Relay ${i}`);
+        this.bigButton.setText(this.buttonStates[i] ? `Deactivate Relay ${i + 1}` : `Activate Relay ${i + 1}`);
       }
     });
   }
@@ -46,17 +46,17 @@ class App {
     // Get the current state of each relay
     this.buttonStates = await runCommand("getStatus");
 
-    // Fencepost name for relay
-    let relayNo = this.activeRelay + 1;
-
     // Create the main button
     this.bigButton = new BigButton({
       containerID : "main-button",
       name : "Main Button",
-      text : this.buttonStates[relayNo] ? `Deactivate Relay ${relayNo}` : `Activate Relay ${relayNo}`,
+      text : this.buttonStates[this.activeRelay] ? `Deactivate Relay ${this.activeRelay + 1}` : `Activate Relay ${this.activeRelay + 1}`,
       onClick : () => {
+        // Fencepost name for relay
+        let relayNo = this.activeRelay + 1;
+
         // Invert button state
-        let state = this.buttonStates[relayNo] = !this.buttonStates[relayNo];
+        let state = this.buttonStates[this.activeRelay] = !this.buttonStates[this.activeRelay];
 
         // Set button text accordingly
         app.bigButton.setText(state ? `Deactivate Relay ${relayNo}` : `Activate Relay ${relayNo}`);
