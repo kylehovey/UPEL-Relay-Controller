@@ -18,16 +18,12 @@ div {
   }
 }
 
-button {
-  $button-side-padding: 40px;
-  $button-vert-space: 20px;
-  .btn {
+label.btn {
     font-size: 3em;
-    padding-left: $button-side-padding;
-    padding-right: $button-side-padding;
-    margin-top: $button-vert-space;
-    margin-bottom: $button-vert-space;
-  }
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 /* Dramatic Button - (raw CSS because I didn't want to install another library

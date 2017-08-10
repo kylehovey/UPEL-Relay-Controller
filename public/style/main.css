@@ -10,12 +10,12 @@ a {
 div .center {
   text-align: center; }
 
-button .btn {
+label.btn {
   font-size: 3em;
   padding-left: 40px;
   padding-right: 40px;
-  margin-top: 20px;
-  margin-bottom: 20px; }
+  margin-top: 50px;
+  margin-bottom: 50px; }
 
 /* Dramatic Button - (raw CSS because I didn't want to install another library
  *  for the SCSS compile).

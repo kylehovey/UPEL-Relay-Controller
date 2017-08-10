@@ -7,10 +7,16 @@ block content
       div.col-md-12
         div.container.center(id="main-button")
       div.col-md-12
-        div.btn-group(role="group", id="active-relay-select")
-          button.large.btn.btn-secondary(type="button", data-value="0") 0
-          button.large.btn.btn-secondary(type="button", data-value="1") 1
-          button.large.btn.btn-secondary(type="button", data-value="2") 2
+        div.btn-group(role="group", data-toggle="buttons", id="active-relay-select")
+          label.btn.btn-danger.active
+            input(type="radio", name="options", data-value="0", autocomplete="off")
+            =0
+          label.btn.btn-danger
+            input(type="radio", name="options", data-value="1", autocomplete="off")
+            =1
+          label.btn.btn-danger
+            input(type="radio", name="options", data-value="2", autocomplete="off")
+            =2
 append userScripts
   script(src="/js/app/index/app.js")
   script(src="/js/app/index/main.js")
