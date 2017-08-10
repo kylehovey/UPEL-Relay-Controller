@@ -21,11 +21,38 @@ class App {
   }
 
   /**
+   * Send a command to update relay state based upon current active state
+   * @return {Promise}
+   */
+  async sendSet() {
+    // Run the command
+    return this.runCommand("set", {
+      number : this.activeRelay,
+      state : this.getActiveState()
+    })
+      .then(console.log)
+      .catch(console.log)
+  }
+
+  /**
    * Get the active state
    * @return {Boolean}
    */
   getActiveState() {
     return this.buttonStates[this.activeRelay];
+  }
+
+  /**
+   * Get button text based upon active state
+   * @return {String}
+   */
+  getButtonText() {
+    // Fencepost name for relay
+    let relayNo = this.activeRelay + 1;
+
+    return this.getActiveState() ?
+      `Deactivate Relay ${relayNo}` :
+      `Activate Relay ${relayNo}`;
   }
 
   /**
@@ -36,10 +63,7 @@ class App {
     let relayNo = this.activeRelay + 1;
 
     // Set button text accordingly
-    app.bigButton.setText(this.getActiveState() ?
-      `Deactivate Relay ${relayNo}` :
-      `Activate Relay ${relayNo}`
-    );
+    app.bigButton.setText(this.getButtonText());
 
     // Set button loading animation
     app.bigButton.setLoading(this.getActiveState());
@@ -50,9 +74,7 @@ class App {
    */
   toggleState() {
     // Invert button state
-    let state
-      = this.buttonStates[this.activeRelay]
-      = !this.getActiveState();
+    this.buttonStates[this.activeRelay] = !this.getActiveState();
   }
 
   /**
@@ -66,17 +88,10 @@ class App {
     this.bigButton = new BigButton({
       containerID : "main-button",
       name : "Main Button",
-      text : this.getActiveState() ?
-        `Deactivate Relay ${this.activeRelay + 1}` :
-        `Activate Relay ${this.activeRelay + 1}`,
-      onClick : () => {
-        // Run the command
-        this.runCommand("set", {
-          number : this.activeRelay,
-          state : this.getActiveState()
-        })
-          .then(console.log)
-          .catch(console.log)
+      text : this.getButtonText(),
+      onClick : async () => {
+        // Send the set command
+        await this.sendSet();
 
         // Toggle this model
         this.toggleState();
