@@ -71,10 +71,10 @@ class App {
     let relayNo = this.activeRelay + 1;
 
     // Set button text accordingly
-    app.bigButton.setText(this.getButtonText());
+    this.bigButton.setText(this.getButtonText());
 
     // Set button loading animation
-    app.bigButton.setLoading(this.getActiveState());
+    this.bigButton.setLoading(this.getActiveState());
 
     // Update the colors of the checkbox group
     // TODO: Find out some way to not hard code this
@@ -107,11 +107,11 @@ class App {
       name : "Main Button",
       text : this.getButtonText(),
       onClick : async () => {
-        // Send the set command
-        await this.sendSet();
-
         // Toggle this model
         this.toggleState();
+
+        // Send the set command
+        await this.sendSet();
 
         // Update the view
         this.updateButtonView();
