@@ -1,5 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const gpio = require('rpi-gpio');
+
 
 const pinMap = require('config.json')('config/config.json').pinMap;
 
@@ -7,10 +9,12 @@ const pinMap = require('config.json')('config/config.json').pinMap;
  * Set up the GPIO pins in the map for output
  */
 // Set up pins as output
-// TODO
-
-// Set all output to 0
-// TODO
+[...(new Set(pinMap))].forEach(pin => {
+  gpio.setup(pin, gpio.DIR_OUT, () => {
+    // Set all output to false
+    gpio.write(pin, false);
+  });
+});
 
 // Create reference for current pin states
 let currentStates = (new Array(pinMap.length)).fill(false)
@@ -32,7 +36,8 @@ function setGPIO(index, state) {
     }
 
     // Set the output
-    // TODO
+    // TODO Error checking
+    gpio.write(pin, state);
 
     // Log the state change
     currentStates[index] = state;
