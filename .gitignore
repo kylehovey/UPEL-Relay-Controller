@@ -1,6 +1,9 @@
 # Compiled JS
 public/js/app/*
 
+# Compiled CSS
+public/js/app/main.css
+
 # Logs
 logs
 *.log

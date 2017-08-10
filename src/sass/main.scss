@@ -1,5 +1,6 @@
 $link-color: #00B7FF;
 $font-stack: "Lucida Grande", Helvetica, Arial, sans-serif;
+$wheelnav-offset: -150px;
 
 body {
   background-color: rgb(10,10,10) !important;
@@ -20,8 +21,8 @@ div {
   .top-left {
     position: absolute;
     z-index: 1;
-    top: 0px;
-    left: 0px;
+    top: $wheelnav-offset;
+    left: $wheelnav-offset;
     height: 100%;
   }
 }
