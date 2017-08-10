@@ -33,6 +33,11 @@ function setGPIO(index, state) {
 
     // Set the output
     // TODO
+
+    // Log the state change
+    currentStates[index] = state;
+
+    // Resolve out
     resolve(true);
   });
 }
