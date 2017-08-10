@@ -2,7 +2,8 @@ body {
   background-color: #0a0a0a !important;
   font-family: Helvetica Neue, Arial, serif;
   padding: 50px;
-  text-align: center; }
+  text-align: center;
+  overflow: hidden; }
 
 a {
   color: #00B7FF; }
