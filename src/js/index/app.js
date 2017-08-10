@@ -35,6 +35,14 @@ class App {
   }
 
   /**
+   * Set the active relay
+   * @param {Number} index Index of relay to set
+   */
+  setActiveRelay(index) {
+    this.activeRelay = index;
+  }
+
+  /**
    * Get the active state
    * @return {Boolean}
    */
@@ -67,6 +75,15 @@ class App {
 
     // Set button loading animation
     app.bigButton.setLoading(this.getActiveState());
+
+    // Update the colors of the checkbox group
+    // TODO: Find out some way to not hard code this
+    $("#active-relay-select")
+      .find("label")
+      .removeClass("btn-danger btn-success")
+      .each(function (index) {
+        $(this).addClass(app.buttonStates[index] ? "btn-success" : "btn-danger");
+      });
   }
 
   /**
@@ -100,5 +117,8 @@ class App {
         this.updateButtonView();
       }
     });
+
+    // Update the view
+    this.updateButtonView();
   }
 };
