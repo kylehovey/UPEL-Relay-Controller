@@ -1,5 +1,5 @@
 # UPEL-Relay-Controller
-##Node.js app for controlling relays via Raspberry Pi GPIO.
+## Node.js app for controlling relays via Raspberry Pi GPIO.
 
 # Installing
 
